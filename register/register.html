@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat:wght@300&family=Comfortaa&family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="/register.css">
+    </head>
+    <body>
+        <div id="main">
+            <div id="root">
+                <div id="c-main">
+                    <div id="c-main-1">
+                        <div id="c-main-1-root-tg"></div>
+                        <div id="c-main-1-root-1">
+                            <span id="signin-title">Or sign in</span>
+                        </div>
+                        <div id="c-main-1-root-2">
+                            <span id="signin-label">Login to your account to access the site</span>
+                        </div>
+                        <div id="c-main-1-root-3">
+                            <button id="to-login" onclick=toLoginPage()>Sign In</button>
+                        </div>
+                        <div id="c-main-1-root-bg"></div>
+                    </div>
+                    <div id="c-main-2">
+                        <div id="c-root-top-gap"></div>
+                        <div id="c-root-1">
+                            <span id="title">Register</span>
+                        </div>
+                        <div id="c-root-2">
+                            <span id="subtitle">Register an account to access the site</span>
+                        </div>
+                        <div id="c-root-3">
+                            <div class="c-input-top-gap"></div>
+                            <div class="c-input">
+                                <div class="c-input-icon">
+                                    <i class="far fa-user icon"></i> 
+                                </div>
+                                <div class="c-input-text">
+                                    <input id="username" type="text" class="input" placeholder="Username" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div id="c-input-middle-gap"></div>
+                            <div class="c-input">
+                                <div class="c-input-icon">
+                                    <i class="fas fa-lock icon"></i> 
+                                </div>
+                                <div class="c-input-text">
+                                    <input id="password" type="text" class="input" placeholder="Password" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div id="c-button">
+                                <button id="register" onclick=register()>SIGN UP</button>
+                            </div>
+                        </div>
+                        <div id="c-root-bottom-gap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <script src="/register.js"></script>
+    </body>
+</html>
