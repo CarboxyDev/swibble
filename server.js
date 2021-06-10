@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 global.PATH = {
     public:path.join(__dirname,'public'),
     pages:path.join(__dirname,'pages'),
+    assets:path.join(__dirname,'assets'),
     login:path.join(__dirname,'login'),
     register:path.join(__dirname,'register'),
     home:path.join(__dirname,'pages/home'),
@@ -39,6 +40,7 @@ global.db = {
 app.use(express.json());
 app.use(cookieParser()); // is a middleware. third party module for cookie operations
 app.use(express.static(PATH.public));
+app.use(express.static(PATH.assets));
 app.use(express.static(PATH.login));
 app.use(express.static(PATH.register));
 app.use(express.static(PATH.home));
@@ -52,7 +54,7 @@ app.use('/action',routes.action);
 
 
 app.get('/',(req,res) => {
-    res.send('<a href="/login">Login Page</a>');
+    res.sendFile('index.html',{root:PATH.public});
 });
 
 

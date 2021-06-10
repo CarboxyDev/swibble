@@ -36,8 +36,8 @@ router.get('/home',async (req,res) => {
 });
 
 
-router.get('/user/:username',async (req,res) => {
-    
+router.get('/user',async (req,res) => {
+    res.sendFile('user.html',{root:PATH.user});
 });
 
 

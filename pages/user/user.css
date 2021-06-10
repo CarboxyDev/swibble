@@ -1,0 +1,107 @@
+:root {
+    --bg-dark : #18191c;
+    --bg-gray : #3a3a3a;
+    --color1 : rgba(58,169,171,1);
+    --color2 : rgba(74,208,119,1);
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    border:none;
+}
+
+body {
+    height:100vh;
+    width:100vw;
+    background:var(--bg-gray);
+}
+
+#main {
+    height:100%;
+    width:100%;
+    
+}
+
+#root {
+    height:100%;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+
+#container-main {
+    height:90%;
+    width:95%;
+    display:grid;
+    grid-template-columns: 33% 64%;
+    grid-gap:3%;
+}
+
+#container-primary {
+    background-color: var(--bg-dark);
+    border-radius: 10px;
+}
+#container-secondary {
+    height:100%;
+    width:100%;
+    background-color: var(--bg-dark);
+    border-radius: 10px;
+}
+#container-sec {
+    height:100%;
+    width:100%;
+    display: grid;
+    grid-template-rows:1fr 1fr;
+}
+#container-sec-top {
+    height:100%;
+    width:100%;
+    display: grid;
+    grid-template-rows:1fr 1fr;
+    border-bottom:1px solid var(--bg-gray);
+}
+#container-sec-bottom {
+    height:100%;
+    width:100%;
+    border-top:1px solid var(--bg-gray);
+}
+#container-sec-top-1 {
+    height:100%;
+    width:100%;
+    display:grid;
+    grid-template-rows:15% 70% 15%;
+    
+}
+#container-st1-1 {
+    height:100%;
+    width:100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background:var(--color1);
+}
+
+#container-st1-2 {
+    height:100%;
+    width:100%;
+    display:grid;
+    grid-template-columns: 10% 80% 10%;
+    background:var(--color1);
+
+}
+
+#container-pfp {
+    border-radius:50%;
+    height:100%;
+    /* width gets adjusted dynamically to the height in pixels using js
+    dont fuck with this shit below please
+    */
+    width:100px;
+    background:#fff;   
+    border:5px solid var(--bg-dark);
+    position: relative;
+    top:50%;
+}
+
