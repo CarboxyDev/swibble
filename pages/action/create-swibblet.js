@@ -11,16 +11,17 @@ let editor = new Quill('.editor',{
 
 function post(){
     let content = editor.getContents().ops[0].insert;
-    let postObj = {
-        content:content
+    let swibbletData = {
+        content:content,
+        token:Cookies.get('token')
     }
-    let url = '/action/post';
+    let url = '/action/swibblet';
     let options = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(postObj),
+        body: JSON.stringify(swibbletData),
     };
     fetch(url,options)
         .then(response => response.json())
@@ -28,6 +29,7 @@ function post(){
             console.log(data);
             if (data.success){
                 editor.setText('');
+                window.location.replace('/home');
             }
             else {
                 

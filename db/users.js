@@ -18,6 +18,11 @@ exports.fetchUser = async(username) => {
     return user;
 }
 
+exports.fetchUserByToken = async(token) => {
+    let user = await User.findOne({token:token});
+    return user;
+}
+
 exports.checkIfUserExists = async(username) => {
     username = username.toLowerCase();
     let check = await User.find({username:username});

@@ -17,7 +17,7 @@ const userSchema = new Schema({
    },
    id : {
        type:String,
-       required:true
+       default:new Date().valueOf()
    },
    token : {
        type:String,

@@ -18,10 +18,7 @@ function loadProfilePicture(){
     bubbleContainer.style.backgroundSize = "cover";
     bubbleContainer.style.backgroundRepeat = "no-repeat";
     bubbleContainer.style.backgroundPosition = "center center";
- 
-
 }
-
 
 
 

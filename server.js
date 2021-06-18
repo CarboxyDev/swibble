@@ -14,8 +14,8 @@ global.PATH = {
     public:path.join(__dirname,'public'),
     pages:path.join(__dirname,'pages'),
     assets:path.join(__dirname,'assets'),
-    login:path.join(__dirname,'login'),
-    register:path.join(__dirname,'register'),
+    login:path.join(__dirname,'pages/login'),
+    register:path.join(__dirname,'pages/register'),
     home:path.join(__dirname,'pages/home'),
     action:path.join(__dirname,'pages/action'),
     user:path.join(__dirname,'pages/user'),
@@ -24,11 +24,14 @@ const routes = {
     root:require('./routes/root'),
     action:require('./routes/action'),
 }
-
+const api = {
+    swibblet : require('./api/swibblet'),
+}
 
 
 global.db = {
     users:require('./db/users'),
+    swibblets:require('./db/swibblets'),
 }
 
 
@@ -50,7 +53,7 @@ app.use(express.static(PATH.user));
 // ROUTERS
 app.use('/',routes.root); // all root paths like /login , /home etc
 app.use('/action',routes.action);
-
+app.use('/api/swibblet',api.swibblet);
 
 
 app.get('/',(req,res) => {

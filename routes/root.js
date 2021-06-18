@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { response } = require('express');
-const {v4:uuid} = require('uuid');
+const {v4:uuid, validate} = require('uuid');
 const checks = require('../js/checks');
 
 
@@ -15,30 +15,7 @@ router.get('/register',(req,res) => {
     res.sendFile('register.html',{root:PATH.register});
 });
 
-router.get('/home',async (req,res) => {
-    
-    let userToken = req.cookies.token;
-    if (userToken == undefined){
-        res.send('You must be logged in before accessing this page. <a href="/login">Login</a>');
-    }
-    else {
-        let validateToken = await db.users.validateToken(userToken);
-        if (validateToken){
-            res.sendFile('home.html',{root:PATH.home});
-        }
-        else {
-            res.send('You are using an invalid account token');
-        }
-    }
-    
 
-    
-});
-
-
-router.get('/user',async (req,res) => {
-    res.sendFile('user.html',{root:PATH.user});
-});
 
 
 
@@ -126,6 +103,49 @@ router.post('/register',async(req,res) => {
         res.status(500).json({success:false,message:'Server error'});
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// These routes use middleware for authentication
+
+router.use('/',async (req,res,next) => {
+    let userToken = req.cookies.token;
+    if (userToken == undefined){
+        res.send('You must be logged in before accessing this page. <a href="/login">Login</a>');
+    }
+    else {
+        let validateToken = await db.users.validateToken(userToken);
+        if (validate){
+            next();
+        }
+        else {
+            res.send('You are using an invalid account');
+        }
+    }
+}); 
+
+
+router.get('/home',async (req,res) => {
+    res.sendFile('index.html',{root:PATH.home});
+});
+
+
+router.get('/user',async (req,res) => {
+    res.sendFile('user.html',{root:PATH.user});
+});
+
+
 
 
 
