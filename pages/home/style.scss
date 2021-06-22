@@ -1,0 +1,31 @@
+@use './scss/variables' as *;
+@use './scss/topPanel' as *;
+@use './scss/mainApp' as *;
+
+@use './scss/utils' as *;
+@use './scss/buttons' as *;
+@use './scss/swibblet' as *;
+
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    border:none;
+}
+
+html {
+    font-size:62.5%;
+}
+
+body {
+    background:$color-dark;
+    color:$color-white;
+    height:100vh;
+    width:100vw;
+    font-family: $font-primary;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}

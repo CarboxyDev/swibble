@@ -34,6 +34,25 @@ exports.checkIfUserExists = async(username) => {
     }
 }
 
+exports.changeUserAvatar = async(token,assetName) => {
+    let user = await User.findOne({token:token});
+    if (user){
+        let updateAvatar = await User.updateOne({token:token},{avatar:assetName});
+        if (updateAvatar){
+            console.log('avatar!');
+            return {success:true};
+        }
+        else {
+            return {success:false};
+        }
+    }
+    else {
+        return {success:false};
+    }
+}
+
+
+
 
 exports.validateToken = async(token) => {
     let validate = await User.find({token:token});

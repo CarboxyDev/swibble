@@ -39,7 +39,8 @@ router.post('/login',async(req,res) => {
             let verify = await bcrypt.compare(password,fetchedUser.password);
             if (verify){
                 //change cookie maxAge in production obv
-                res.cookie('token',fetchedUser.token,{maxAge:1000*60*30,sameSite:'strict'});
+                res.cookie('token',fetchedUser.token,{maxAge:1000*60*60*12,sameSite:'strict'});
+                res.cookie('avatar',fetchedUser.avatar,{maxAge:1000*60*60*24,sameSite:'strict'});
                 res.status(200).json({success:true,message:'Logged in successfully'});
             }
             else {
@@ -142,14 +143,7 @@ router.get('/home',async (req,res) => {
 
 
 router.get('/user',async (req,res) => {
-    res.sendFile('user.html',{root:PATH.user});
 });
-
-
-
-
-
-
 
 
 

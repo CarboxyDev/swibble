@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 require('dotenv').config();
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 global.PATH = {
     public:path.join(__dirname,'public'),
     pages:path.join(__dirname,'pages'),
-    assets:path.join(__dirname,'assets'),
+    assets:path.join(__dirname,'/assets'),
     login:path.join(__dirname,'pages/login'),
     register:path.join(__dirname,'pages/register'),
     home:path.join(__dirname,'pages/home'),
@@ -42,8 +43,8 @@ global.db = {
 
 app.use(express.json());
 app.use(cookieParser()); // is a middleware. third party module for cookie operations
+app.use(fileUpload());
 app.use(express.static(PATH.public));
-app.use(express.static(PATH.assets));
 app.use(express.static(PATH.login));
 app.use(express.static(PATH.register));
 app.use(express.static(PATH.home));

@@ -1,0 +1,33 @@
+@use './variables' as *;
+
+.top-panel {
+    flex-basis:15%;
+    background:$color-dark-less;
+    min-height:7rem;
+}
+
+.brand-logo {
+    width:20%;
+    min-width:12rem;
+    min-height:5rem;
+    .main-branding {
+        font-size:4rem;
+    }
+}
+
+.menu {
+    width:70%;    
+}
+.special-menu {
+    width:10%;
+    min-height:5.6rem;
+    min-width:5.6rem;
+    .profile-menu {
+        height:5.6rem;
+        width:5.6rem;
+
+        #profile-bubble {
+            background:#fff;
+        }
+    }
+}

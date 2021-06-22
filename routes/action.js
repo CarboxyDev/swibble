@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const {v4:uuid, validate} = require('uuid');
 
 
 
@@ -45,6 +45,41 @@ router.post('/swibblet', async (req,res) => {
 
 
 
+router.get('/change-avatar',async (req,res) => {
+    res.sendFile('change-avatar.html',{root:PATH.action});
+})
+
+router.post('/change-avatar',async (req,res) => {
+    console.log('[-] POST : action > change-avatar');
+    try {
+        let avatar = req.files.avatar;
+        if (avatar.mimetype == 'image/png' || avatar.mimetype == 'image/jpg'){
+            let fileExt = avatar.name.substring(avatar.name.length-4,avatar.name.length);
+            assetName = uuid().replaceAll('-','') + fileExt;
+            assetsPath = __dirname.replace('routes','public') + '/assets/' + assetName;
+            avatar.mv(assetsPath,async(error) => {
+                if (error){
+                    return res.json({success:false});
+                }
+                let token = req.cookies.token;
+                console.log(assetName);
+                let updateAvatar = await db.users.changeUserAvatar(token,assetName);
+                res.cookie('avatar',assetName,{maxAge:1000*60*60*24,sameSite:'strict'});
+
+                return res.json({success:true});
+            });
+            
+        }
+        else {
+            res.json({success:false,reason:'Only .png and .jpg files allowed'});
+        }
+    }
+    catch (error){
+        console.log(error.message);
+        res.json({success:false});
+    }
+
+});
 
 
 

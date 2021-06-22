@@ -9,7 +9,11 @@ const swibbletSchema = new Schema({
         },
         id : {
             type:String,
-            reqjuired:true
+            required:true
+        },
+        avatar : {
+            type:String,
+            required:true
         }
     },
     
