@@ -36,6 +36,9 @@
                     font-size:2rem;
                     color:$color-bluegray;
                     font-family: $font-special;
+                    a:hover {
+                        text-decoration: underline;
+                    }
                 }
                 .swibblet-date {
                     width:25%;

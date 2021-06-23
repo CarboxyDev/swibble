@@ -7,7 +7,6 @@ const fileUpload = require('express-fileupload');
 
 const app = express();
 require('dotenv').config();
-let connectedtoDatabase = false;
 
 
 const PORT = process.env.PORT || 3000;
@@ -24,6 +23,7 @@ global.PATH = {
 const routes = {
     root:require('./routes/root'),
     action:require('./routes/action'),
+    user:require('./routes/user'),
 }
 const api = {
     swibblet : require('./api/swibblet'),
@@ -43,7 +43,7 @@ global.db = {
 
 app.use(express.json());
 app.use(cookieParser()); // is a middleware. third party module for cookie operations
-app.use(fileUpload());
+app.use(fileUpload());  // is a middleware for uploading user avatars!
 app.use(express.static(PATH.public));
 app.use(express.static(PATH.login));
 app.use(express.static(PATH.register));
@@ -54,6 +54,7 @@ app.use(express.static(PATH.user));
 // ROUTERS
 app.use('/',routes.root); // all root paths like /login , /home etc
 app.use('/action',routes.action);
+app.use('/user',routes.user);
 app.use('/api/swibblet',api.swibblet);
 
 
@@ -74,7 +75,6 @@ server = app.listen(PORT,() => {
 function connectToDatabase(){
     mongoose.connect(process.env.DB_URL,{useNewUrlParser:true,useUnifiedTopology:true,useCreatedIndex:true})
     .then((result) => {
-        connectedtoDatabase = true;
         console.log('[+] Database is online');
     })
     .catch((error) => {

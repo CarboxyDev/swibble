@@ -65,7 +65,7 @@ router.post('/change-avatar',async (req,res) => {
                 console.log(assetName);
                 let updateAvatar = await db.users.changeUserAvatar(token,assetName);
                 res.cookie('avatar',assetName,{maxAge:1000*60*60*24,sameSite:'strict'});
-
+                let updateSwibbletAvatars = await db.swibblets.updateSwibbletAvatars(token);
                 return res.json({success:true});
             });
             

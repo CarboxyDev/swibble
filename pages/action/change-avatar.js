@@ -1,22 +1,29 @@
 let form = document.querySelector('#uploadForm');
+form.addEventListener('submit',(e) => {
+    e.preventDefault();
+    uploadFile();
+});
 
 
 function uploadFile(){
-    let fileElem = document.querySelector('#upload');
+    let formData = new FormData();
+    let fileElem = document.querySelector('#selectedFile');
     let file = fileElem.files[0];
-    if (file != undefined){
-        let url = '/action/upload-pfp';
 
-        console.log(file);
+    formData.append('avatar',file);
+    
+    
+    if (file != undefined){
+        let url = '/action/change-avatar';
         let options = {
             method: 'POST',
-            body: file
+            body: formData
         };
         console.log(options);
         fetch(url,options)
             .then(res => res.json())
             .then(data => {
-    
+                window.location.replace('/home');
             });
     
     }

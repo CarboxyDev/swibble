@@ -6,14 +6,15 @@
     min-width:16rem;
     height:35%;
     width:80%;
-    background:$color-accent-more;
+    background:$color-blue;
     border-radius:25px;
     border:none;
     color:$color-white;
-    font-size:1.8rem;
-    font-family: $font-primary;
-}
+    font-size:1.75rem;
+    font-family: $font-button;
+    opacity: 0.9;
 
-.btn-swibblet:hover {
-    background-color: $color-accent;
+    &:hover {
+        opacity:1;
+    }
 }

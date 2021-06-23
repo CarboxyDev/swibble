@@ -3,7 +3,7 @@
 @use './scss/mainApp' as *;
 
 @use './scss/utils' as *;
-@use './scss/buttons' as *;
+@use './scss/components' as *;
 @use './scss/swibblet' as *;
 
 * {
@@ -29,3 +29,10 @@ body {
     height: 100%;
     width: 100%;
 }
+
+a {
+    color:inherit;
+    text-decoration: none;
+
+}
+

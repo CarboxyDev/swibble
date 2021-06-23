@@ -30,7 +30,7 @@ function outputSwibblet(swibblet){
             <div class="swibblet-br"></div>
             <div class="swibblet-br"></div>
             <div class="swibblet-author flex flex-column flex-v-center">
-                <div class="swibblet-username">${swibblet.author.username}</div>
+                <div class="swibblet-username"><a href="/user/${swibblet.author.username}">${swibblet.author.username}</a></div>
                 <div class="swibblet-date flex flex-v-center">
                     <span>${renderSwibbletDate(swibblet.createdAt)}</span>
                 </div>
@@ -72,7 +72,7 @@ function outputSwibblet(swibblet){
             -->
             </div>
         <div class="swibblet-others flex flex-v-center">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"><g><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></g></svg>
+            <svg viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></g></svg>
         </div>
     </div>
 </div>
@@ -131,15 +131,6 @@ function renderSwibbletDate(swibbletDate){
 
 
 
-
-
-
-
-
-
-function postSwibblet(){
-    window.location.replace('/action/swibblet');
-}
 
 
 function uuid(){

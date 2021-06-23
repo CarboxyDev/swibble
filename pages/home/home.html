@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>User page</title>
+        <title>Home - Swibble</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&family=Varela+Round&family=Righteous&family=Ubuntu&family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/user.css">
+        <link rel="stylesheet" href="/home.css">
     </head>
     <body>
         <div id="root" class="flex flex-row">
@@ -65,33 +65,14 @@
                     </div>
                 </div>
                 <div class="content">
-                    <div class="content-root occupy-full">
-                        <div class="profile occupy-full">
+                    <div class="content-root">
 
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
         <script src="/Cookies.js"></script>
-        <script src="/user.js"></script>
-        <script>
-            
-
-            function loadSelfProfileBubble(){
-                let myAvatar = Cookies.get('avatar');
-                if (myAvatar){
-                    let profileBubble = document.querySelector('#profile-bubble');
-                    profileBubble.style.background = `url(/assets/${myAvatar})`;
-                    profileBubble.style.backgroundPosition = "center center";
-                    profileBubble.style.backgroundSize = "cover";
-                    profileBubble.style.backgroundRepeat = "no-repeat";
-                }
-
-            }
-
-            loadSelfProfileBubble();
-
-        </script>
+        <script src="/home.js"></script>
     </body>
 </html>

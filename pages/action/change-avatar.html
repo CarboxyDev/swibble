@@ -9,9 +9,8 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <form ref='uploadForm' id='uploadForm' action='/action/change-avatar' method='post' 
-        encType="multipart/form-data">
-            <input type="file" name="avatar" />
+        <form id='uploadForm' encType="multipart/form-data">
+            <input id="selectedFile" type="file" name="avatar" />
             <input type='submit' value='Upload' />
       </form>    
         <script src="/change-avatar.js"></script>

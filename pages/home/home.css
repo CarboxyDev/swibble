@@ -1,7 +1,3 @@
-.font-branding {
-  font-family: "Righteous", Verdana, Arial, helvetica;
-}
-
 .top-panel {
   -ms-flex-preferred-size: 15%;
       flex-basis: 15%;
@@ -16,6 +12,7 @@
 }
 .brand-logo .main-branding {
   font-size: 4rem;
+  font-family: "Righteous", Verdana, Arial, helvetica;
 }
 
 .menu {
@@ -43,7 +40,7 @@
 .sidebar {
   -ms-flex-preferred-size: 17.5%;
       flex-basis: 17.5%;
-  background: #0e1318;
+  background: #0e141a;
 }
 .sidebar .sidebar-content {
   height: 75%;
@@ -61,6 +58,7 @@
 .sidebar .sidebar-content .sidebar-item .sidebar-item-text {
   font-size: 1.9rem;
   color: #ccccff;
+  font-family: "Raleway", "Roboto", Verdana, Arial, Helvetica, sans-serif;
 }
 .sidebar .sidebar-content .sidebar-item .sidebar-item-text:hover {
   cursor: pointer;
@@ -87,45 +85,6 @@
   padding: 2% 2.5% 2% 2.5%;
 }
 
-/*
-.main-content-wrap {
-    flex-basis:80%;
-
-    .main-content {
-        padding-left:2.5%;
-        padding-top:2%;
-        padding-right:2.5%;
-        overflow-y:scroll;
-
-        .content {
-
-            .content-snippet {
-                min-height:35%;
-                width:100%;
-                border-radius: 7.5px;
-                background-color: $color-dark-less;
-                align-items:stretch;
-
-            }
-
-            .content-snippet-big {
-                min-height:60%;
-                width: 100%;
-                border-radius: 7.5px;
-                background-color: $color-dark-less;
-                align-items:center;
-            }
-
-
-            .content-gap {
-                height:3%;
-                width:100%;
-            }
-
-        }
-
-    }
-}*/
 .occupy-full {
   height: 100%;
   width: 100%;
@@ -187,16 +146,16 @@
   min-width: 16rem;
   height: 35%;
   width: 80%;
-  background: #0f9966;
+  background: #487bda;
   border-radius: 25px;
   border: none;
   color: #ffffff;
-  font-size: 1.8rem;
-  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  font-family: "Rubik", Arial, helvetica, sans-serif;
+  opacity: 0.9;
 }
-
 .btn-swibblet:hover {
-  background-color: #18eb9e;
+  opacity: 1;
 }
 
 .swibblet {
@@ -236,6 +195,9 @@
   font-size: 2rem;
   color: #ccccff;
   font-family: "Varela Round", Verdana, Arial, sans-serif;
+}
+.swibblet .swibblet-root .swibblet-primary .swibblet-author .swibblet-username a:hover {
+  text-decoration: underline;
 }
 .swibblet .swibblet-root .swibblet-primary .swibblet-author .swibblet-date {
   width: 25%;
@@ -393,4 +355,9 @@ body {
   height: 100%;
   width: 100%;
 }
-/*# sourceMappingURL=style.css.map */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/*# sourceMappingURL=home.css.map */

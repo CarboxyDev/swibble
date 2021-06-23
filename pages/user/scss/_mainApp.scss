@@ -62,6 +62,11 @@
 
     .content-root {
         padding:2% 2.5% 2% 2.5%;
+        
+        .profile {
+            background:$color-dark-less;
+            border-radius:7.5px;
+        }
     }
 
 }

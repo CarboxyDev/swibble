@@ -13,7 +13,7 @@ const userSchema = new Schema({
    },
    createdAt: {
        type:Date,
-       required:true
+       default:new Date()
    },
    id : {
        type:String,
@@ -26,7 +26,19 @@ const userSchema = new Schema({
    avatar : {
        type:String,
        default:"doge.png"
+   },
+   userdata : {
+       followers : {
+           type:Array,
+           default:[]
+       },
+       following : {
+           type:Array,
+           default:[]
+       }
    }
+
+
 
 },{timestamps:false});
 

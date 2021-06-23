@@ -78,12 +78,11 @@ router.post('/register',async(req,res) => {
                 let salt = await bcrypt.genSalt(8);
                 let hashedPwd = await bcrypt.hash(password,salt);
     
-                let createdDate = new Date();
                 const userObj = {
                     username:username,
                     password:hashedPwd,
                     id:new Date().valueOf(),
-                    createdAt:createdDate,
+                    createdAt:new Date(),
                     token:uuid().replaceAll('-','')
                 };
 
@@ -138,13 +137,13 @@ router.use('/',async (req,res,next) => {
 
 
 router.get('/home',async (req,res) => {
-    res.sendFile('index.html',{root:PATH.home});
+    res.sendFile('home.html',{root:PATH.home});
 });
 
-
-router.get('/user',async (req,res) => {
+router.get('/me',async (req,res) => {
+    let user = await db.users.fetchUserByToken(req.cookies.token);
+    let username = user.username;
+    res.redirect('/user/'+username);
 });
-
-
 
 module.exports = router;
